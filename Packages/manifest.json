@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.gamearki.fpmath": "ssh://git@github.com/GameArki/FPMath.git?path=Assets/com.gamearki.fpmath#main",
+    "com.gamearki.freeinput": "ssh://git@github.com/gamearki/FreeInput.git?path=Assets/com.gamearki.freeinput",
+    "com.gamearki.setup": "ssh://git@github.com/gamearki/gamearkisetup.git?path=Assets/com.gamearki.setup#main",
     "com.unity.collab-proxy": "1.15.15",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.13",
@@ -41,6 +44,8 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "com.gamearki.tripodcamera": "ssh://git@github.com/gamearki/TripodCamera.git?path=Assets/com.gamearki.tripodcamera#main",
+    "com.gamearki.fpeasing": "ssh://git@github.com/gamearki/FPEasing.git?path=Assets/com.gamearki.fpeasing#main"
   }
 }

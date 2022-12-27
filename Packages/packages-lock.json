@@ -1,5 +1,40 @@
 {
   "dependencies": {
+    "com.gamearki.fpeasing": {
+      "version": "ssh://git@github.com/gamearki/FPEasing.git?path=Assets/com.gamearki.fpeasing#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "627d8158ee02fd2c0260208b42b9ad986654373e"
+    },
+    "com.gamearki.fpmath": {
+      "version": "ssh://git@github.com/GameArki/FPMath.git?path=Assets/com.gamearki.fpmath#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "494d3770b3b02fefc6780364aa5763d6a3b756f0"
+    },
+    "com.gamearki.freeinput": {
+      "version": "ssh://git@github.com/gamearki/FreeInput.git?path=Assets/com.gamearki.freeinput",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c9c2fa7bd62f0fdfc4248ceee5a70990a93a2971"
+    },
+    "com.gamearki.setup": {
+      "version": "ssh://git@github.com/gamearki/gamearkisetup.git?path=Assets/com.gamearki.setup#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "25190847e5916adcd877c52707cf74fb3abec997"
+    },
+    "com.gamearki.tripodcamera": {
+      "version": "ssh://git@github.com/gamearki/TripodCamera.git?path=Assets/com.gamearki.tripodcamera#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "14d46bc1b1040e1337b3e426a927af99e2994194"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.15",
       "depth": 0,
