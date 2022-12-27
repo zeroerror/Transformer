@@ -19,14 +19,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "c9c2fa7bd62f0fdfc4248ceee5a70990a93a2971"
+      "hash": "ec0de329be155a68b1ae507d88661b3e2635a4f1"
     },
     "com.gamearki.setup": {
       "version": "ssh://git@github.com/gamearki/gamearkisetup.git?path=Assets/com.gamearki.setup#main",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "25190847e5916adcd877c52707cf74fb3abec997"
+      "hash": "08b3ed99a63db9f881b673b7d12225c3c135010e"
     },
     "com.gamearki.tripodcamera": {
       "version": "ssh://git@github.com/gamearki/TripodCamera.git?path=Assets/com.gamearki.tripodcamera#main",
@@ -34,6 +34,20 @@
       "source": "git",
       "dependencies": {},
       "hash": "14d46bc1b1040e1337b3e426a927af99e2994194"
+    },
+    "com.unity.addressables": {
+      "version": "1.19.19",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.scriptablebuildpipeline": "1.19.6",
+        "com.unity.modules.assetbundle": "1.0.0",
+        "com.unity.modules.imageconversion": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
+      },
+      "url": "https://packages.unity.cn"
     },
     "com.unity.collab-proxy": {
       "version": "1.15.15",
@@ -99,6 +113,13 @@
     },
     "com.unity.performance.profile-analyzer": {
       "version": "1.1.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.cn"
+    },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "1.19.6",
       "depth": 1,
       "source": "registry",
       "dependencies": {},

@@ -1,7 +1,17 @@
 {
     "name": "Transformer.Entry",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:456740c386b308542be128e7c798eefb",
+        "GUID:2e87284201eb2dc4982b2c0bffc3b7c6",
+        "GUID:2563dca0e657f5f46b40cbc71840f88f",
+        "GUID:136ec279c0f8a004a80595fc7e2cd1a2",
+        "GUID:3ff881dc433aae34d9be9f83caa11966",
+        "GUID:13bd082f282f8f64281ae0cc4ed956d5",
+        "GUID:1a861cae39b20c2469929fdd8656cc10"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
