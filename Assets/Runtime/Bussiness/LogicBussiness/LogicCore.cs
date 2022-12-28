@@ -1,9 +1,9 @@
 using FixMath.NET;
 using GameArki.FreeInput;
-using Transformer.Bussiness.LogicBussiness.Facade;
-using Transformer.Bussiness.LogicBussiness.Phase;
+using Transformer.LogicBussiness.Facade;
+using Transformer.LogicBussiness.Phase;
 
-namespace Transformer.Bussiness.LogicBussiness
+namespace Transformer.LogicBussiness
 {
 
     public class LogicCore

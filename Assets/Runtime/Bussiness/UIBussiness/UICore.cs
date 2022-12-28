@@ -1,6 +1,6 @@
-using Transformer.Bussiness.UIBussiness.Facade;
+using Transformer.UIBussiness.Facade;
 
-namespace Transformer.Bussiness.UIBussiness
+namespace Transformer.UIBussiness
 {
 
     public class UICore

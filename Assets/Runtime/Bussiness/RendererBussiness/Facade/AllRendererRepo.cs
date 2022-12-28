@@ -1,4 +1,4 @@
-namespace Transformer.Bussiness.RendererBussiness.Facade
+namespace Transformer.RendererBussiness.Facade
 {
 
     public class AllRendererRepo

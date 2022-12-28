@@ -1,7 +1,7 @@
-using Transformer.Bussiness.LogicBussiness.Facade;
-using Transformer.Bussiness.LogicBussiness.Generic;
+using Transformer.LogicBussiness.Facade;
+using Transformer.LogicBussiness.Generic;
 
-namespace Transformer.Bussiness.LogicBussiness.Domain
+namespace Transformer.LogicBussiness.Domain
 {
 
     public class RoleDomain

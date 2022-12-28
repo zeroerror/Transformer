@@ -1,6 +1,6 @@
-using Transformer.Bussiness.LogicBussiness.Repo;
+using Transformer.LogicBussiness.Repo;
 
-namespace Transformer.Bussiness.LogicBussiness.Facade
+namespace Transformer.LogicBussiness.Facade
 {
 
     public class AllLogicRepo

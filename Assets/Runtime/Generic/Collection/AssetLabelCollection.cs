@@ -1,4 +1,4 @@
-namespace Transformer.Bussiness.LogicBussiness.Generic
+namespace Transformer.Generic
 {
 
     public static class AssetLabelCollection

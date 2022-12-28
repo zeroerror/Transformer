@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75b53387e464724488d8fcdb3b8ced49, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b304f22cfb766140a8195594c21b13b, type: 3}
   m_Name: so_tm_role_1000
   m_EditorClassIdentifier: 
   typeID: 1000
-  name: "\u89D2\u82721000"
-  moveSpeedCM: 500
+  typeName: AAA
+  moveSpeedCM: 1000
   jumpForceCM: 500

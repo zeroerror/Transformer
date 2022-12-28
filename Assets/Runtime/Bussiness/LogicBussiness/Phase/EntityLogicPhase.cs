@@ -1,8 +1,8 @@
 using FixMath.NET;
-using Transformer.Bussiness.LogicBussiness.Facade;
-using Transformer.Bussiness.LogicBussiness.Generic;
+using Transformer.LogicBussiness.Facade;
+using Transformer.LogicBussiness.Generic;
 
-namespace Transformer.Bussiness.LogicBussiness.Phase
+namespace Transformer.LogicBussiness.Phase
 {
 
     public class EntityLogicPhase

@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
-using Transformer.Bussiness.LogicBussiness.Generic;
-using Transformer.Bussiness.LogicBussiness.Template;
+using Transformer.LogicBussiness.Generic;
+using Transformer.Template;
 using UnityEngine.AddressableAssets;
 
-namespace Transformer.Bussiness.LogicBussiness.Facade
+namespace Transformer.LogicBussiness.Facade
 {
 
     public class AllTemplate

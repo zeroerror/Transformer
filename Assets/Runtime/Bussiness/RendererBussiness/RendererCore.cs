@@ -1,7 +1,7 @@
 using GameArki.TripodCamera;
-using Transformer.Bussiness.RendererBussiness.Facade;
+using Transformer.RendererBussiness.Facade;
 
-namespace Transformer.Bussiness.RendererBussiness
+namespace Transformer.RendererBussiness
 {
 
     public class RendererCore

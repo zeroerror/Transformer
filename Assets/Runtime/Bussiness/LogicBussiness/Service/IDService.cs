@@ -1,4 +1,4 @@
-namespace Transformer.Bussiness.LogicBussiness.Service
+namespace Transformer.LogicBussiness.Service
 {
 
     public class IDService

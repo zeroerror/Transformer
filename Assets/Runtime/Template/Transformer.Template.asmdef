@@ -1,8 +1,10 @@
 {
-    "name": "Transformer.Bussiness.RendererBussiness",
+    "name": "Transformer.Template",
     "rootNamespace": "",
     "references": [
-        "GUID:2e87284201eb2dc4982b2c0bffc3b7c6"
+        "GUID:9e24947de15b9834991c9d8411ea37cf",
+        "GUID:84651a3751eca9349aac36a66bba901b",
+        "GUID:71848f03b0e7b6643bdac59fba24eb5a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

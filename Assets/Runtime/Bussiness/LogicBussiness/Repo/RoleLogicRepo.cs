@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Transformer.Bussiness.LogicBussiness.Repo
+namespace Transformer.LogicBussiness.Repo
 {
 
     public class RoleLogicRepo

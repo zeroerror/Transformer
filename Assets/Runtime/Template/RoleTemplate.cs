@@ -1,10 +1,9 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
-using Transformer.Bussiness.LogicBussiness.Generic;
-using Transformer.Template;
+using Transformer.Generic;
 
-namespace Transformer.Bussiness.LogicBussiness.Template
+namespace Transformer.Template
 {
 
     public class RoleTemplate

@@ -1,7 +1,7 @@
 using FixMath.NET;
-using Transformer.Bussiness.LogicBussiness.Facade;
+using Transformer.LogicBussiness.Facade;
 
-namespace Transformer.Bussiness.LogicBussiness.Factory
+namespace Transformer.LogicBussiness.Factory
 {
 
     public class LogicFactory

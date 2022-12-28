@@ -1,4 +1,4 @@
-namespace Transformer.Bussiness.UIBussiness.Facade
+namespace Transformer.UIBussiness.Facade
 {
 
     public class UIFacade

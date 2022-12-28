@@ -1,7 +1,7 @@
 using FixMath.NET;
 using UnityEngine;
 
-namespace Transformer.Bussiness.LogicBussiness
+namespace Transformer.LogicBussiness
 {
 
     public class LocomotionComponent

@@ -1,4 +1,4 @@
-namespace Transformer.Bussiness.LogicBussiness
+namespace Transformer.LogicBussiness
 {
 
     public class RoleLogicEntity

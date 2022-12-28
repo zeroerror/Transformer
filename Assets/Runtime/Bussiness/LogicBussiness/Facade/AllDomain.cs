@@ -1,6 +1,6 @@
-using Transformer.Bussiness.LogicBussiness.Facade;
+using Transformer.LogicBussiness.Facade;
 
-namespace Transformer.Bussiness.LogicBussiness.Domain
+namespace Transformer.LogicBussiness.Domain
 {
 
     public class AllDomain

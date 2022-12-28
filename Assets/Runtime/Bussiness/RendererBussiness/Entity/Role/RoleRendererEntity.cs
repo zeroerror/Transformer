@@ -1,4 +1,4 @@
-namespace Transformer.Bussiness.RendererBussiness
+namespace Transformer.RendererBussiness
 {
 
     public class RoleRendererEntity

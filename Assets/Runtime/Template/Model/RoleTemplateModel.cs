@@ -9,7 +9,7 @@ namespace Transformer.Template
     {
 
         public int typeID;
-        public string name;
+        public string typeName;
 
         // - Locomotion
         public int moveSpeedCM;

@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 using FixMath.NET;
 using GameArki.TripodCamera;
 using GameArki.FreeInput;
-using Transformer.Bussiness.LogicBussiness;
-using Transformer.Bussiness.RendererBussiness;
-using Transformer.Bussiness.UIBussiness;
-using Transformer.Bussiness.LogicBussiness.Facade;
+using Transformer.LogicBussiness;
+using Transformer.RendererBussiness;
+using Transformer.UIBussiness;
+using Transformer.LogicBussiness.Facade;
 
 namespace Transformer.Entry
 {
@@ -91,7 +91,7 @@ namespace Transformer.Entry
                 setterAPI.LookAt_SetInit_Current(roleTF, new Vector3(0, 0, 0));
 
                 var rb = roleTF.GetComponent<Rigidbody>();
-                logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, Bussiness.LogicBussiness.Generic.ControlType.Owner, rb);
+                logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, LogicBussiness.Generic.ControlType.Owner, rb);
                 sceneLoaded = true;
             };
         }

@@ -1,7 +1,7 @@
 using FixMath.NET;
-using Transformer.Bussiness.LogicBussiness.Generic;
+using Transformer.LogicBussiness.Generic;
 
-namespace Transformer.Bussiness.LogicBussiness
+namespace Transformer.LogicBussiness
 {
 
     public class IDComponent

@@ -1,9 +1,9 @@
 using GameArki.FreeInput;
-using Transformer.Bussiness.LogicBussiness.Domain;
-using Transformer.Bussiness.LogicBussiness.Factory;
-using Transformer.Bussiness.LogicBussiness.Service;
+using Transformer.LogicBussiness.Domain;
+using Transformer.LogicBussiness.Factory;
+using Transformer.LogicBussiness.Service;
 
-namespace Transformer.Bussiness.LogicBussiness.Facade
+namespace Transformer.LogicBussiness.Facade
 {
 
     public class LogicFacade

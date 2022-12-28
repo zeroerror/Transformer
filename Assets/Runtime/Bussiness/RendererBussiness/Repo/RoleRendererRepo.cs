@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Transformer.Bussiness.RendererBussiness.Repo
+namespace Transformer.RendererBussiness.Repo
 {
 
     public class RoleRendererRepo
