@@ -6,6 +6,7 @@ namespace Transformer.Generic
     public class InputKeyCodeModel
     {
 
+        // KeyCode  ushort  16byte * 5 = 80 byte
         public KeyCode jump_key;
         public KeyCode moveForward_key;
         public KeyCode moveBackward_key;
@@ -23,12 +24,13 @@ namespace Transformer.Generic
             moveRight_key = KeyCode.D;
         }
 
-        public void ToBytes()
+        public byte[] ToBytes()
         {
-
+            byte[] res = new byte[80];
+            return res;
         }
 
-        public void FromBytes()
+        public void FromBytes(byte[] bytes)
         {
 
         }
