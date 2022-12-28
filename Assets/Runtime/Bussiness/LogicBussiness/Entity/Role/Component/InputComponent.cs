@@ -7,12 +7,14 @@ namespace Transformer.LogicBussiness
     {
 
         public FPVector3 moveDir;
+        public bool jump;
 
         public InputComponent() { }
 
         public void Reset()
         {
             moveDir = FPVector3.Zero;
+            jump = false;
         }
 
     }

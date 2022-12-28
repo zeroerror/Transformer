@@ -18,7 +18,7 @@ namespace Transformer.UIBussiness
 
         }
 
-        public void Tick()
+        public void Update()
         {
 
         }

@@ -8,6 +8,7 @@ using Transformer.LogicBussiness;
 using Transformer.RendererBussiness;
 using Transformer.UIBussiness;
 using Transformer.LogicBussiness.Facade;
+using Transformer.Generic;
 
 namespace Transformer.Entry
 {
@@ -39,14 +40,14 @@ namespace Transformer.Entry
         {
             if (!sceneLoaded) return;
 
-            rendererCore.Tick();
-            uiCore.Tick();
+            logicCore.Update();
+            rendererCore.Update();
+            uiCore.Update();
         }
 
         void FixedUpdate()
         {
             if (!sceneLoaded) return;
-
             logicCore.Tick(FP64.ToFP64(UnityEngine.Time.fixedDeltaTime));
         }
 
@@ -66,10 +67,13 @@ namespace Transformer.Entry
 
             inputCore = new FreeInputCore();
             var setter = inputCore.Setter;
-            setter.Bind(1, KeyCode.W);
-            setter.Bind(2, KeyCode.S);
-            setter.Bind(3, KeyCode.A);
-            setter.Bind(4, KeyCode.D);
+            InputKeyCodeModel inputKeyCodeModel = new InputKeyCodeModel();
+            inputKeyCodeModel.DefaultInit();
+            setter.Bind(InputBindIDCollection.JUMP, inputKeyCodeModel.jump_key);
+            setter.Bind(InputBindIDCollection.MOVE_FORWARD, inputKeyCodeModel.moveForward_key);
+            setter.Bind(InputBindIDCollection.MOVE_BACKWARD, inputKeyCodeModel.moveBackward_key);
+            setter.Bind(InputBindIDCollection.MOVE_LEFT, inputKeyCodeModel.moveLeft_key);
+            setter.Bind(InputBindIDCollection.MOVE_RIGHT, inputKeyCodeModel.moveRight_key);
 
             logicCore = new LogicCore();
 

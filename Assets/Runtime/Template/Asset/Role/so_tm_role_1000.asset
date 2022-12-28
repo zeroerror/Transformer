@@ -15,4 +15,4 @@ MonoBehaviour:
   typeID: 1000
   typeName: AAA
   moveSpeedCM: 1000
-  jumpForceCM: 500
+  jumpForceCM: 800

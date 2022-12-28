@@ -19,7 +19,7 @@ namespace Transformer.RendererBussiness
             rendererFacade.Inject(camCore);
         }
 
-        public void Tick()
+        public void Update()
         {
         }
 

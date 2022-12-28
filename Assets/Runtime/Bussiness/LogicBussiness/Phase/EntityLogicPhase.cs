@@ -24,9 +24,15 @@ namespace Transformer.LogicBussiness.Phase
             {
                 var inputComponent = role.InputComponent;
                 var lc = role.LocomotionComponent;
+
+                // - Move
                 var moveDir = inputComponent.moveDir;
                 var vel = moveDir * lc.MoveSpeed;
                 lc.Move(vel);
+                // - Jump
+                if (inputComponent.jump) lc.Jump();
+                inputComponent.Reset();
+
             });
 
         }

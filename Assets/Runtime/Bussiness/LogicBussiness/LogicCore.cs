@@ -28,10 +28,14 @@ namespace Transformer.LogicBussiness
             logicPhase.Inject(logicFacade);
         }
 
+        public void Update()
+        {
+            inputPhase.Update();
+        }
+
         public void Tick(FP64 dt)
         {
             // - Phase
-            inputPhase.Tick();
             logicPhase.Tick(dt);
         }
 

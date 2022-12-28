@@ -32,6 +32,13 @@ namespace Transformer.LogicBussiness
             rb.velocity = v;
         }
 
+        public void Jump()
+        {
+            var v = rb.velocity;
+            v.y += jumpSpeed.AsFloat();
+            rb.velocity = v;
+        }
+
     }
 
 }
