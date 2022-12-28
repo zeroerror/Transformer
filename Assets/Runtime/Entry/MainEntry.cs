@@ -75,6 +75,15 @@ namespace Transformer.Entry
             setter.Bind(InputBindIDCollection.MOVE_LEFT, inputKeyCodeModel.moveLeft_key);
             setter.Bind(InputBindIDCollection.MOVE_RIGHT, inputKeyCodeModel.moveRight_key);
 
+            var bytes = inputKeyCodeModel.ToBytes();
+            InputKeyCodeModel mod = new InputKeyCodeModel();
+            mod.FromBytes(bytes);
+            Debug.Log($"{mod.jump_key}");
+            Debug.Log($"{mod.moveForward_key}");
+            Debug.Log($"{mod.moveBackward_key}");
+            Debug.Log($"{mod.moveLeft_key}");
+            Debug.Log($"{mod.moveRight_key}");
+
             logicCore = new LogicCore();
 
             rendererCore = new RendererCore();
