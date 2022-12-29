@@ -228,6 +228,13 @@
       },
       "url": "https://packages.unity.cn"
     },
+    "com.zeroerror.freeinput": {
+      "version": "ssh://git@github.com/zeroerror/AutoMaze.git?path=Assets/com.zeroerror.automaze#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "7b8729c8180aeec2756e0641539264c4bf5abb78"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

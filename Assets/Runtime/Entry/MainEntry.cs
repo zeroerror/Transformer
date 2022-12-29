@@ -75,15 +75,6 @@ namespace Transformer.Entry
             setter.Bind(InputBindIDCollection.MOVE_LEFT, inputKeyCodeModel.moveLeft_key);
             setter.Bind(InputBindIDCollection.MOVE_RIGHT, inputKeyCodeModel.moveRight_key);
 
-            var bytes = inputKeyCodeModel.ToBytes();
-            InputKeyCodeModel mod = new InputKeyCodeModel();
-            mod.FromBytes(bytes);
-            Debug.Log($"{mod.jump_key}");
-            Debug.Log($"{mod.moveForward_key}");
-            Debug.Log($"{mod.moveBackward_key}");
-            Debug.Log($"{mod.moveLeft_key}");
-            Debug.Log($"{mod.moveRight_key}");
-
             logicCore = new LogicCore();
 
             rendererCore = new RendererCore();
@@ -100,7 +91,7 @@ namespace Transformer.Entry
             {
                 var setterAPI = camCore.SetterAPI;
                 var roleTF = GameObject.Find("role").transform;
-                setterAPI.Follow_SetInit_Current(roleTF, new Vector3(0, 10, -10), GameArki.FPEasing.EasingType.Linear, 0.02f);
+                setterAPI.Follow_SetInit_Current(roleTF, new Vector3(0, 10, -10), GameArki.FPEasing.EasingType.Linear, 0f);
                 setterAPI.LookAt_SetInit_Current(roleTF, new Vector3(0, 0, 0));
 
                 var rb = roleTF.GetComponent<Rigidbody>();
