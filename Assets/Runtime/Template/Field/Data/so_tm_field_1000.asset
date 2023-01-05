@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c399de4eeef0214facdf248c5f17978, type: 3}
+  m_Name: so_tm_field_1000
+  m_EditorClassIdentifier: 
+  typeID: 1000
+  typeName: "\u573A\u666F1000"
+  bornPosX: -103
+  bornPosY: 356
+  bornPosZ: -12
+  transformModels:
+  - centerX: -136
+    centerY: 0
+    centerZ: 48
+    rotationX: 0
+    rotationY: 0
+    rotationZ: 0
+    rotationW: 100
+    scaleX: 1316
+    scaleY: 31
+    scaleZ: 1265
+    sizeX: 100
+    sizeY: 100
+    sizeZ: 100
+  - centerX: -80
+    centerY: 0
+    centerZ: 2317
+    rotationX: -18
+    rotationY: 0
+    rotationZ: 0
+    rotationW: 98
+    scaleX: 1316
+    scaleY: 31
+    scaleZ: 1293
+    sizeX: 100
+    sizeY: 100
+    sizeZ: 100
+  - centerX: 2185
+    centerY: 0
+    centerZ: 2429
+    rotationX: 0
+    rotationY: 0
+    rotationZ: 0
+    rotationW: 100
+    scaleX: 1316
+    scaleY: 31
+    scaleZ: 703
+    sizeX: 100
+    sizeY: 100
+    sizeZ: 100
+  rbBoxStartIndex: 3

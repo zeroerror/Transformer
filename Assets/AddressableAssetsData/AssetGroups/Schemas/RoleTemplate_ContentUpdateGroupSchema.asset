@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b304f22cfb766140a8195594c21b13b, type: 3}
-  m_Name: so_tm_role_1000
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: RoleTemplate_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  typeID: 1000
-  typeName: AAA
-  moveSpeedCM: 1000
-  jumpForceCM: 800
+  m_Group: {fileID: 11400000, guid: 7a352a8b18392ca46b0ac1d37fed0345, type: 2}
+  m_StaticContent: 0

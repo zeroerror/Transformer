@@ -88,15 +88,35 @@ namespace Transformer.Entry
             await allTemplate.Init();
 
             // - Scene
-            var handle = Addressables.LoadSceneAsync("scene_game_level1", LoadSceneMode.Single);
+            var handle = Addressables.LoadSceneAsync("scene_field_1000", LoadSceneMode.Single);
             handle.Completed += (op) =>
             {
-                var roleTF = GameObject.Find("role").transform;
+                var fieldSO = allTemplate.FieldTempate.TryGet(1000);
+                var physicsCore = logicCore.PhysicsCore;
+
+                // - TODO: Logic
+                FPVector3 bornPos = new FPVector3(fieldSO.bornPosX * FP64.EN2, fieldSO.bornPosY * FP64.EN2, fieldSO.bornPosZ * FP64.EN2);
+                logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, bornPos);
+                var tfModels = fieldSO.transformModels;
+                for (int i = 0; i < tfModels.Length; i++)
+                {
+                    var tfModel = tfModels[i];
+                    var api = physicsCore.SetterAPI;
+                    api.SpawnBox(tfModel.ToFPCenter(), tfModel.ToFPQuaternion(), tfModel.ToFPScale(), tfModel.ToFPSize());
+                }
+
+                // - TODO: Renderer
+                var roleTF = new GameObject("Role").transform;
+                roleTF.position = new Vector3(fieldSO.bornPosX, fieldSO.bornPosY, fieldSO.bornPosZ);
+                roleTF.position /= 100;
+                var rootTF = handle.Result.Scene.GetRootGameObjects()[0].transform;
+                roleTF.SetParent(rootTF, true);
+
+                // TODO: Camera
                 var cameraSetterAPI = camCore.SetterAPI;
                 cameraSetterAPI.Follow_SetInit_Current(roleTF, new Vector3(0, 10, -10), GameArki.FPEasing.EasingType.Linear, 0f);
                 cameraSetterAPI.LookAt_SetInit_Current(roleTF, new Vector3(0, 0, 0));
 
-                logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, FPVector3.Zero);
                 sceneLoaded = true;
             };
         }
@@ -111,11 +131,21 @@ namespace Transformer.Entry
         {
             if (logicCore == null) return;
 
-            var roleRepo = logicCore.logicFacade.Repo.RoleRepo;
-            roleRepo.ForeachAll((role) =>
+            var physicsCore = logicCore.PhysicsCore;
+            var getterAPI = physicsCore.GetterAPI;
+            var allBoxes = getterAPI.GetAllBoxes();
+            var allRBBoxes = getterAPI.GetAllRBBoxes();
+
+            allBoxes.ForEach((box) =>
             {
-                var lc = role.LocomotionComponent;
-                lc.RbBox.Box.DrawBoxBorder();
+                box.DrawBoxBorder();
+                box.DrawBoxPoint();
+            });
+            allRBBoxes.ForEach((rbBox) =>
+            {
+                var box = rbBox.Box;
+                box.DrawBoxBorder();
+                box.DrawBoxPoint();
             });
         }
 

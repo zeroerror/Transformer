@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 09afc4bfb88dddc408a0d7a91f4d174a
-  m_SerializeEntries:
-  - m_GUID: 589cf4f30789e264aa23570e5832be17
-    m_Address: so_tm_role_1000
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - RoleTemplateModel
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4ba04163c20580f4eb5cd0852c51cf07, type: 2}
   m_SchemaSet:

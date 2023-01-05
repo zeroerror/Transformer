@@ -17,6 +17,7 @@ namespace Transformer.LogicBussiness
         PhysicsPhase physicsPhase;
 
         PhysicsWorld3DCore physicsCore;
+        public PhysicsWorld3DCore PhysicsCore => physicsCore;
 
         public LogicCore()
         {

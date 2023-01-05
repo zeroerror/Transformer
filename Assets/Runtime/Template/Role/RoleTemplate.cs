@@ -9,25 +9,25 @@ namespace Transformer.Template
     public class RoleTemplate
     {
 
-        List<RoleTemplateModel> all;
+        List<RoleSO> all;
 
         public RoleTemplate()
         {
-            all = new List<RoleTemplateModel>();
+            all = new List<RoleSO>();
         }
 
         public async Task Init()
         {
             AssetLabelReference assetLabelReference = new AssetLabelReference();
             assetLabelReference.labelString = AssetLabelCollection.TEMPLE_MODEL_ROLE;
-            var result = await Addressables.LoadAssetsAsync<RoleTemplateModel>(assetLabelReference, null).Task;
-            foreach (var roleTM in result)
+            var result = await Addressables.LoadAssetsAsync<RoleSO>(assetLabelReference, null).Task;
+            foreach (var so in result)
             {
-                all.Add(roleTM);
+                all.Add(so);
             }
         }
 
-        public RoleTemplateModel TryGet(int typeID)
+        public RoleSO TryGet(int typeID)
         {
             return all.Find((r) => r.typeID == typeID);
         }

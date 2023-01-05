@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Scene
+  m_Name: RoleTemplate
   m_EditorClassIdentifier: 
-  m_GroupName: Scene
+  m_GroupName: RoleTemplate
   m_Data:
     m_SerializedData: []
-  m_GUID: 1ecb9baf4ecd75e45a21a03e844ddbb0
+  m_GUID: 9a401e08c37e4d5428f552d74f5acfa5
   m_SerializeEntries:
-  - m_GUID: 7452dee994f42334992c9ae366ac32cc
-    m_Address: scene_field_1000
+  - m_GUID: 589cf4f30789e264aa23570e5832be17
+    m_Address: so_tm_role_1000
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - RoleTemplateModel
+    - RoleTemplate
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4ba04163c20580f4eb5cd0852c51cf07, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 702c9a22ebb8d98449f8e16762fdc2c7, type: 2}
-    - {fileID: 11400000, guid: 298f681efd42ffb4db5ce02710ec2db3, type: 2}
+    - {fileID: 11400000, guid: 5dd08d1e3096f434fb4e99c008a03744, type: 2}
+    - {fileID: 11400000, guid: c73ef18250902684385eec0b004aea7e, type: 2}

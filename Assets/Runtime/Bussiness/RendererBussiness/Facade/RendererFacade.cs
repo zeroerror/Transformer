@@ -8,7 +8,9 @@ namespace Transformer.RendererBussiness.Facade
 
         TCCore camCore;
 
-
+        // TODO
+        // public AllDomain Domain { get; private set; }
+        // public RendererFactory Factory { get; private set; }
 
         public RendererFacade() { }
 
@@ -16,7 +18,7 @@ namespace Transformer.RendererBussiness.Facade
         {
             this.camCore = camCore;
         }
-        
+
     }
 
 }

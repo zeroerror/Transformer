@@ -1,8 +1,9 @@
 {
-    "name": "Transformer.Generic",
+    "name": "Transformer.TemplateEditor",
     "rootNamespace": "",
     "references": [
-        "GUID:456740c386b308542be128e7c798eefb"
+        "GUID:5d34f62b91a5c914cad8f4b9e21e3c66",
+        "GUID:71848f03b0e7b6643bdac59fba24eb5a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
