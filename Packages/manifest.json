@@ -3,7 +3,7 @@
     "com.gamearki.fpeasing": "ssh://git@github.com/gamearki/FPEasing.git?path=Assets/com.gamearki.fpeasing#main",
     "com.gamearki.fpmath": "ssh://git@github.com/GameArki/FPMath.git?path=Assets/com.gamearki.fpmath#main",
     "com.gamearki.freeinput": "ssh://git@github.com/gamearki/FreeInput.git?path=Assets/com.gamearki.freeinput",
-    "com.gamearki.pathfinding": "ssh://git@github.com/gamearki/PathFinding.git?path=Assets/com.gamearki.pathfinding#main",
+    "com.gamearki.pathfinding": "ssh://git@github.com/gamearki/pathfinding.git?path=Assets/com.gamearki.pathfinding#main",
     "com.gamearki.setup": "ssh://git@github.com/gamearki/gamearkisetup.git?path=Assets/com.gamearki.setup#main",
     "com.gamearki.tripodcamera": "ssh://git@github.com/gamearki/TripodCamera.git?path=Assets/com.gamearki.tripodcamera#main",
     "com.unity.addressables": "1.19.19",

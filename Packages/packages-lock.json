@@ -22,11 +22,11 @@
       "hash": "ec0de329be155a68b1ae507d88661b3e2635a4f1"
     },
     "com.gamearki.pathfinding": {
-      "version": "ssh://git@github.com/gamearki/PathFinding.git?path=Assets/com.gamearki.pathfinding#main",
+      "version": "ssh://git@github.com/gamearki/pathfinding.git?path=Assets/com.gamearki.pathfinding#main",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "9f7faab4547163a241a59764276087e884ddb722"
+      "hash": "693bc86d4a3ec3d286dd943233a2f4f677b56076"
     },
     "com.gamearki.setup": {
       "version": "ssh://git@github.com/gamearki/gamearkisetup.git?path=Assets/com.gamearki.setup#main",
