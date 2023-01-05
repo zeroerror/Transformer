@@ -2,6 +2,7 @@ using GameArki.FreeInput;
 using Transformer.LogicBussiness.Domain;
 using Transformer.LogicBussiness.Factory;
 using Transformer.LogicBussiness.Service;
+using ZeroPhysics.Physics3D;
 
 namespace Transformer.LogicBussiness.Facade
 {
@@ -10,8 +11,9 @@ namespace Transformer.LogicBussiness.Facade
     {
 
         public FreeInputCore InputCore { get; private set; }
-        public AllTemplate Template { get; private set; }
+        public PhysicsWorld3DCore PhysicsCore { get; private set; }
 
+        public AllTemplate Template { get; private set; }
         public AllLogicRepo Repo { get; private set; }
         public AllDomain Domain { get; private set; }
         public LogicFactory Factory { get; private set; }
@@ -27,9 +29,10 @@ namespace Transformer.LogicBussiness.Facade
             IDService = new IDService();
         }
 
-        public void Inject(FreeInputCore inputCore, AllTemplate template)
+        public void Inject(FreeInputCore inputCore, PhysicsWorld3DCore physicsCore, AllTemplate template)
         {
             this.InputCore = inputCore;
+            this.PhysicsCore = physicsCore;
             this.Template = template;
         }
 

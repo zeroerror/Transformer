@@ -1,6 +1,5 @@
 using FixMath.NET;
 using Transformer.LogicBussiness.Facade;
-using Transformer.LogicBussiness.Generic;
 
 namespace Transformer.LogicBussiness.Phase
 {
@@ -32,9 +31,7 @@ namespace Transformer.LogicBussiness.Phase
                 // - Jump
                 if (inputComponent.jump) lc.Jump();
                 inputComponent.Reset();
-
             });
-
         }
 
     }

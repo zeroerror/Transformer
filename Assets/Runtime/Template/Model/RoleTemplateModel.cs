@@ -12,8 +12,16 @@ namespace Transformer.Template
         public string typeName;
 
         // - Locomotion
-        public int moveSpeedCM;
-        public int jumpForceCM;
+        public int moveSpeed_CM;
+        public int jumpForce_CM;
+
+        // - RB
+        public int width_CM;
+        public int height_CM;
+        public int length_CM;
+        public int sizeX_CM;
+        public int sizeY_CM;
+        public int sizeZ_CM;
 
 
     }

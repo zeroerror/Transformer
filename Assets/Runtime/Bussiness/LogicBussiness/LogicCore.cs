@@ -2,6 +2,7 @@ using FixMath.NET;
 using GameArki.FreeInput;
 using Transformer.LogicBussiness.Facade;
 using Transformer.LogicBussiness.Phase;
+using ZeroPhysics.Physics3D;
 
 namespace Transformer.LogicBussiness
 {
@@ -13,19 +14,25 @@ namespace Transformer.LogicBussiness
 
         InputPhase inputPhase;
         EntityLogicPhase logicPhase;
+        PhysicsPhase physicsPhase;
+
+        PhysicsWorld3DCore physicsCore;
 
         public LogicCore()
         {
             logicFacade = new LogicFacade();
             inputPhase = new InputPhase();
             logicPhase = new EntityLogicPhase();
+            physicsPhase = new PhysicsPhase();
+            physicsCore = new PhysicsWorld3DCore(new FPVector3(0, -10, 0));
         }
 
         public void Inject(FreeInputCore inputCore, AllTemplate template)
         {
-            logicFacade.Inject(inputCore, template);
+            logicFacade.Inject(inputCore, physicsCore, template);
             inputPhase.Inject(logicFacade);
             logicPhase.Inject(logicFacade);
+            physicsPhase.Inject(logicFacade);
         }
 
         public void Update()
@@ -37,6 +44,7 @@ namespace Transformer.LogicBussiness
         {
             // - Phase
             logicPhase.Tick(dt);
+            physicsPhase.Tick(dt);
         }
 
     }

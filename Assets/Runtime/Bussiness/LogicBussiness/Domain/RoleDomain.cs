@@ -1,5 +1,6 @@
 using Transformer.LogicBussiness.Facade;
 using Transformer.LogicBussiness.Generic;
+using FixMath.NET;
 
 namespace Transformer.LogicBussiness.Domain
 {
@@ -19,21 +20,20 @@ namespace Transformer.LogicBussiness.Domain
             this.facade = facade;
         }
 
-        public void SpawnRole(int typeID, ControlType controlType, UnityEngine.Rigidbody rb)
+        public void SpawnRole(int typeID, ControlType controlType, in FPVector3 spawnPos)
         {
             var factory = facade.Factory;
             var idService = facade.IDService;
             var roleRepo = facade.Repo.RoleRepo;
 
-            // - Spawn
-            var role = factory.SpawnRole(typeID);
+            // - Spawn Entity
+            var role = factory.SpawnRole(typeID, spawnPos);
 
-            // - Set
+            // - Set Entity
             var idc = role.IDComponent;
             var lc = role.LocomotionComponent;
             idc.SetID(idService.GetRoleID());
             idc.SetControlType(controlType);
-            lc.Inject(rb);
 
             // - Add
             roleRepo.Add(role);

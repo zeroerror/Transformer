@@ -4,10 +4,12 @@ using UnityEngine.SceneManagement;
 using FixMath.NET;
 using GameArki.TripodCamera;
 using GameArki.FreeInput;
+using ZeroPhysics.Extensions;
 using Transformer.LogicBussiness;
+using Transformer.LogicBussiness.Facade;
+using Transformer.LogicBussiness.Generic;
 using Transformer.RendererBussiness;
 using Transformer.UIBussiness;
-using Transformer.LogicBussiness.Facade;
 using Transformer.Generic;
 
 namespace Transformer.Entry
@@ -89,13 +91,12 @@ namespace Transformer.Entry
             var handle = Addressables.LoadSceneAsync("scene_game_level1", LoadSceneMode.Single);
             handle.Completed += (op) =>
             {
-                var setterAPI = camCore.SetterAPI;
                 var roleTF = GameObject.Find("role").transform;
-                setterAPI.Follow_SetInit_Current(roleTF, new Vector3(0, 10, -10), GameArki.FPEasing.EasingType.Linear, 0f);
-                setterAPI.LookAt_SetInit_Current(roleTF, new Vector3(0, 0, 0));
+                var cameraSetterAPI = camCore.SetterAPI;
+                cameraSetterAPI.Follow_SetInit_Current(roleTF, new Vector3(0, 10, -10), GameArki.FPEasing.EasingType.Linear, 0f);
+                cameraSetterAPI.LookAt_SetInit_Current(roleTF, new Vector3(0, 0, 0));
 
-                var rb = roleTF.GetComponent<Rigidbody>();
-                logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, LogicBussiness.Generic.ControlType.Owner, rb);
+                logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, FPVector3.Zero);
                 sceneLoaded = true;
             };
         }
@@ -104,6 +105,18 @@ namespace Transformer.Entry
         {
             logicCore.Inject(inputCore, allTemplate);
             rendererCore.Inject(camCore);
+        }
+
+        void OnDrawGizmos()
+        {
+            if (logicCore == null) return;
+
+            var roleRepo = logicCore.logicFacade.Repo.RoleRepo;
+            roleRepo.ForeachAll((role) =>
+            {
+                var lc = role.LocomotionComponent;
+                lc.RbBox.Box.DrawBoxBorder();
+            });
         }
 
     }
