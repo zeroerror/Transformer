@@ -1,6 +1,6 @@
 using FixMath.NET;
 
-namespace Transformer.LogicBussiness
+namespace Transformer.Bussiness.LogicBussiness
 {
 
     public class InputComponent

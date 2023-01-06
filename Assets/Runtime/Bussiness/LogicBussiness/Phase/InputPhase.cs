@@ -1,9 +1,9 @@
 using FixMath.NET;
 using Transformer.Generic;
-using Transformer.LogicBussiness.Facade;
-using Transformer.LogicBussiness.Generic;
+using Transformer.Bussiness.LogicBussiness.Facade;
+using Transformer.Bussiness.LogicBussiness.Generic;
 
-namespace Transformer.LogicBussiness.Phase
+namespace Transformer.Bussiness.LogicBussiness.Phase
 {
 
     public class InputPhase

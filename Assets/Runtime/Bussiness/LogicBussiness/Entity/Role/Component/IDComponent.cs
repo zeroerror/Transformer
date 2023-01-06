@@ -1,15 +1,11 @@
 using FixMath.NET;
-using Transformer.LogicBussiness.Generic;
+using Transformer.Bussiness.LogicBussiness.Generic;
 
-namespace Transformer.LogicBussiness
+namespace Transformer.Bussiness.LogicBussiness
 {
 
     public class IDComponent
     {
-
-        ControlType controlType;
-        public ControlType ControlType => controlType;
-        public void SetControlType(ControlType v) => controlType = v;
 
         EntityType entityType;
         public EntityType EntityType => entityType;
@@ -22,6 +18,10 @@ namespace Transformer.LogicBussiness
         int id;
         public int ID => id;
         public void SetID(int v) => id = v;
+
+        ControlType controlType;
+        public ControlType ControlType => controlType;
+        public void SetControlType(ControlType v) => controlType = v;
 
         public IDComponent() { }
 

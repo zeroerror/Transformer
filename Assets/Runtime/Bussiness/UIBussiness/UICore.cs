@@ -18,7 +18,7 @@ namespace Transformer.UIBussiness
 
         }
 
-        public void Update()
+        public void Update(float dt)
         {
 
         }

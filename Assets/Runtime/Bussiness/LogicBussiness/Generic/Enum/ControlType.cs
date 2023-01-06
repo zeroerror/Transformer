@@ -1,4 +1,4 @@
-namespace Transformer.LogicBussiness.Generic
+namespace Transformer.Bussiness.LogicBussiness.Generic
 {
 
     public enum ControlType

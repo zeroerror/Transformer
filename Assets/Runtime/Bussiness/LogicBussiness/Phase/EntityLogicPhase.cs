@@ -1,17 +1,16 @@
 using FixMath.NET;
-using Transformer.LogicBussiness.Facade;
 
-namespace Transformer.LogicBussiness.Phase
+namespace Transformer.Bussiness.LogicBussiness.Phase
 {
 
     public class EntityLogicPhase
     {
 
-        LogicFacade facade;
+        Facade.LogicFacade facade;
 
         public EntityLogicPhase() { }
 
-        public void Inject(LogicFacade facade)
+        public void Inject(Facade.LogicFacade facade)
         {
             this.facade = facade;
         }

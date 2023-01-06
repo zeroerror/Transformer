@@ -20,6 +20,11 @@ namespace Transformer.Template
         public int sizeY_CM;
         public int sizeZ_CM;
 
+        public Vector3 ToSize()
+        {
+            return new Vector3(sizeX_CM / 100f, sizeY_CM / 100f, sizeZ_CM / 100f);
+        }
+
 
     }
 

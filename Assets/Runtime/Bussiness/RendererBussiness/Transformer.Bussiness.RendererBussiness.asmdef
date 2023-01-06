@@ -1,0 +1,17 @@
+{
+    "name": "Transformer.Bussiness.RendererBussiness",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2e87284201eb2dc4982b2c0bffc3b7c6",
+        "GUID:5d34f62b91a5c914cad8f4b9e21e3c66"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

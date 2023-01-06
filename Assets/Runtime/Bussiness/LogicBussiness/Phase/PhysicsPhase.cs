@@ -1,24 +1,24 @@
 using FixMath.NET;
-using Transformer.LogicBussiness.Facade;
+using Transformer.Bussiness.LogicBussiness.Facade;
 
-namespace Transformer.LogicBussiness.Phase
+namespace Transformer.Bussiness.LogicBussiness.Phase
 {
 
     public class PhysicsPhase
     {
 
-        LogicFacade facade;
+        LogicFacade logicFacade;
 
         public PhysicsPhase() { }
 
-        public void Inject(LogicFacade facade)
+        public void Inject(LogicFacade logicFacade)
         {
-            this.facade = facade;
+            this.logicFacade = logicFacade;
         }
 
         public void Tick(FP64 dt)
         {
-            facade.PhysicsCore.Tick(dt);
+            logicFacade.PhysicsCore.Tick(dt);
         }
 
     }

@@ -5,12 +5,13 @@ using FixMath.NET;
 using GameArki.TripodCamera;
 using GameArki.FreeInput;
 using ZeroPhysics.Extensions;
-using Transformer.LogicBussiness;
-using Transformer.LogicBussiness.Facade;
-using Transformer.LogicBussiness.Generic;
-using Transformer.RendererBussiness;
+using Transformer.Bussiness.LogicBussiness;
+using Transformer.Bussiness.LogicBussiness.Generic;
+using Transformer.Bussiness.RendererBussiness;
 using Transformer.UIBussiness;
 using Transformer.Generic;
+using Transformer.Template;
+using Transformer.Bussiness.RendererAPI;
 
 namespace Transformer.Entry
 {
@@ -42,9 +43,10 @@ namespace Transformer.Entry
         {
             if (!sceneLoaded) return;
 
-            logicCore.Update();
-            rendererCore.Update();
-            uiCore.Update();
+            var dt = UnityEngine.Time.deltaTime;
+            logicCore.Update(dt);
+            rendererCore.Update(dt);
+            uiCore.Update(dt);
         }
 
         void FixedUpdate()
@@ -94,9 +96,10 @@ namespace Transformer.Entry
                 var fieldSO = allTemplate.FieldTempate.TryGet(1000);
                 var physicsCore = logicCore.PhysicsCore;
 
-                // - TODO: Logic
-                FPVector3 bornPos = new FPVector3(fieldSO.bornPosX * FP64.EN2, fieldSO.bornPosY * FP64.EN2, fieldSO.bornPosZ * FP64.EN2);
-                logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, bornPos);
+                // - Logic
+                FPVector3 bornFPPos = fieldSO.ToFPBornPos();
+                var logicRole = logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, bornFPPos);
+
                 var tfModels = fieldSO.transformModels;
                 for (int i = 0; i < tfModels.Length; i++)
                 {
@@ -105,14 +108,15 @@ namespace Transformer.Entry
                     api.SpawnBox(tfModel.ToFPCenter(), tfModel.ToFPQuaternion(), tfModel.ToFPScale(), tfModel.ToFPSize());
                 }
 
-                // - TODO: Renderer
-                var roleTF = new GameObject("Role").transform;
-                roleTF.position = new Vector3(fieldSO.bornPosX, fieldSO.bornPosY, fieldSO.bornPosZ);
-                roleTF.position /= 100;
+                // - Renderer
+                Vector3 bornPos = fieldSO.ToBornPos();
+                rendererCore.RendererFacade.Domain.RoleDomain.SpawnRole(1000, logicRole.IDComponent.ID, bornPos);
+
                 var rootTF = handle.Result.Scene.GetRootGameObjects()[0].transform;
+                var roleTF = new GameObject("Role").transform;
+                roleTF.position = bornPos;
                 roleTF.SetParent(rootTF, true);
 
-                // TODO: Camera
                 var cameraSetterAPI = camCore.SetterAPI;
                 cameraSetterAPI.Follow_SetInit_Current(roleTF, new Vector3(0, 10, -10), GameArki.FPEasing.EasingType.Linear, 0f);
                 cameraSetterAPI.LookAt_SetInit_Current(roleTF, new Vector3(0, 0, 0));
@@ -123,8 +127,11 @@ namespace Transformer.Entry
 
         void Inject()
         {
-            logicCore.Inject(inputCore, allTemplate);
-            rendererCore.Inject(camCore);
+            rendererCore.Inject(camCore, allTemplate);
+            
+            RendererSetter rendererSetter = new RendererSetter();
+            rendererSetter.Inject(rendererCore.RendererFacade);
+            logicCore.Inject(inputCore, allTemplate,rendererSetter);
         }
 
         void OnDrawGizmos()

@@ -1,26 +1,26 @@
-using Transformer.LogicBussiness.Facade;
-using Transformer.LogicBussiness.Generic;
+using Transformer.Bussiness.LogicBussiness.Facade;
+using Transformer.Bussiness.LogicBussiness.Generic;
 using FixMath.NET;
 
-namespace Transformer.LogicBussiness.Domain
+namespace Transformer.Bussiness.LogicBussiness.Domain
 {
 
     public class RoleDomain
     {
 
-        LogicFacade facade;
+        Facade.LogicFacade facade;
 
         public RoleDomain()
         {
 
         }
 
-        public void Inject(LogicFacade facade)
+        public void Inject(Facade.LogicFacade facade)
         {
             this.facade = facade;
         }
 
-        public void SpawnRole(int typeID, ControlType controlType, in FPVector3 spawnPos)
+        public RoleEntity SpawnRole(int typeID, ControlType controlType, in FPVector3 spawnPos)
         {
             var factory = facade.Factory;
             var idService = facade.IDService;
@@ -31,12 +31,15 @@ namespace Transformer.LogicBussiness.Domain
 
             // - Set Entity
             var idc = role.IDComponent;
-            var lc = role.LocomotionComponent;
+            idc.SetEntityType(EntityType.Role);
+            idc.SetTypeID(typeID);
             idc.SetID(idService.GetRoleID());
             idc.SetControlType(controlType);
 
             // - Add
             roleRepo.Add(role);
+
+            return role;
         }
 
     }

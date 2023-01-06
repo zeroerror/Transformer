@@ -2,7 +2,7 @@ using FixMath.NET;
 using UnityEngine;
 using ZeroPhysics.Physics3D;
 
-namespace Transformer.LogicBussiness
+namespace Transformer.Bussiness.LogicBussiness
 {
 
     public class LocomotionComponent
