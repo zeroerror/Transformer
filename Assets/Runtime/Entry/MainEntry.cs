@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
@@ -35,8 +37,12 @@ namespace Transformer.Entry
         void Awake()
         {
             DontDestroyOnLoad(this);
-            Init();
-            Inject();
+            Action action = async () =>
+            {
+                await Init();
+                Inject();
+            };
+            action.Invoke();
         }
 
         void Update()
@@ -44,15 +50,14 @@ namespace Transformer.Entry
             if (!sceneLoaded) return;
 
             var dt = UnityEngine.Time.deltaTime;
+
+            // Logic
+            logicCore.Tick(dt);
+
+            // Renderer
             logicCore.Update(dt);
             rendererCore.Update(dt);
             uiCore.Update(dt);
-        }
-
-        void FixedUpdate()
-        {
-            if (!sceneLoaded) return;
-            logicCore.Tick(FP64.ToFP64(UnityEngine.Time.fixedDeltaTime));
         }
 
         void LateUpdate()
@@ -62,7 +67,7 @@ namespace Transformer.Entry
             camCore.Tick(UnityEngine.Time.deltaTime);
         }
 
-        async void Init()
+        async Task Init()
         {
             // - Core
             camCore = new TCCore();
@@ -128,10 +133,10 @@ namespace Transformer.Entry
         void Inject()
         {
             rendererCore.Inject(camCore, allTemplate);
-            
+
             RendererSetter rendererSetter = new RendererSetter();
             rendererSetter.Inject(rendererCore.RendererFacade);
-            logicCore.Inject(inputCore, allTemplate,rendererSetter);
+            logicCore.Inject(inputCore, allTemplate, rendererSetter);
         }
 
         void OnDrawGizmos()

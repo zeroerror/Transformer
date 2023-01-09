@@ -5,6 +5,7 @@ using Transformer.Bussiness.LogicBussiness.Facade;
 using Transformer.Bussiness.LogicBussiness.Phase;
 using Transformer.Template;
 using Transformer.Bussiness.RendererAPI;
+using Transformer.Bussiness.LogicBussiness.Config;
 
 namespace Transformer.Bussiness.LogicBussiness
 {
@@ -22,6 +23,9 @@ namespace Transformer.Bussiness.LogicBussiness
         PhysicsWorld3DCore physicsCore;
         public PhysicsWorld3DCore PhysicsCore => physicsCore;
 
+        FP64 restoreTime;
+        FP64 intervalTime;
+
         public LogicCore()
         {
             logicFacade = new Facade.LogicFacade();
@@ -31,7 +35,8 @@ namespace Transformer.Bussiness.LogicBussiness
             physicsPhase = new PhysicsPhase();
             rendererPhase = new RendererPhase();
 
-            physicsCore = new PhysicsWorld3DCore(new FPVector3(0, -10, 0));
+            physicsCore = new PhysicsWorld3DCore(new FPVector3(0, -FP64.ToFP64(GameConfig.GRAVITY), 0));
+            intervalTime = 1 / FP64.ToFP64(GameConfig.PHYSICS_FRAMERATE);
         }
 
         public void Inject(FreeInputCore inputCore, AllTemplate template, RendererSetter rendererSetter)
@@ -49,12 +54,17 @@ namespace Transformer.Bussiness.LogicBussiness
             inputPhase.Update();
         }
 
-        public void Tick(FP64 dt)
+        public void Tick(float dt)
         {
-            // - Phase
-            logicPhase.Tick(dt);
-            physicsPhase.Tick(dt);
-            rendererPhase.Tick(dt);
+            restoreTime += FP64.ToFP64(dt);
+            while (restoreTime >= intervalTime)
+            {
+                restoreTime -= intervalTime;
+                // - Phase
+                logicPhase.Tick(intervalTime);
+                physicsPhase.Tick(intervalTime);
+                rendererPhase.Tick(intervalTime);
+            }
         }
 
     }
