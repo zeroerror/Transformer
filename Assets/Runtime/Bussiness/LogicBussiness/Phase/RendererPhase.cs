@@ -23,7 +23,7 @@ namespace Transformer.Bussiness.LogicBussiness.Phase
             roleRepo.ForeachAll((role) =>
             {
                 var id = role.IDComponent.ID;
-                var centerFP = role.LocomotionComponent.RbBox.Box.Center;
+                var centerFP = role.LocomotionComponent.BoxRB.Box.Center;
                 rendererSetterAPI.SetRoleLocomotion_Center(id, centerFP);
             });
         }

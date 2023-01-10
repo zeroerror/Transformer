@@ -16,29 +16,29 @@ namespace Transformer.Bussiness.LogicBussiness
         public FP64 JumpSpeed => jumpSpeed;
         public void SetJumpSpeed(FP64 v) => jumpSpeed = v;
 
-        Rigidbody3D_Box rbBox;
-        public Rigidbody3D_Box RbBox => rbBox;
+        Box3DRigidbody boxRB;
+        public Box3DRigidbody BoxRB => boxRB;
 
         public LocomotionComponent() { }
 
-        public void Inject(Rigidbody3D_Box rbBox)
+        public void Inject(Box3DRigidbody boxRB)
         {
-            this.rbBox = rbBox;
+            this.boxRB = boxRB;
         }
 
         public void Move(FPVector3 addV)
         {
-            var v = rbBox.LinearV;
+            var v = boxRB.LinearV;
             v.x = addV.x;
             v.z = addV.z;
-            rbBox.SetLinearV(v);
+            boxRB.SetLinearV(v);
         }
 
         public void Jump()
         {
-            var v = rbBox.LinearV;
+            var v = boxRB.LinearV;
             v.y += jumpSpeed;
-            rbBox.SetLinearV(v);
+            boxRB.SetLinearV(v);
         }
 
     }

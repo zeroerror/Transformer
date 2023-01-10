@@ -104,18 +104,21 @@ namespace Transformer.Entry
                 // - Logic
                 FPVector3 bornFPPos = fieldSO.ToFPBornPos();
                 var logicRole = logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, bornFPPos);
+                var rb = logicRole.LocomotionComponent.BoxRB;
+                rb.SetBounceCoefficient(5);
 
                 var tfModels = fieldSO.transformModels;
                 for (int i = 0; i < tfModels.Length; i++)
                 {
                     var tfModel = tfModels[i];
                     var api = physicsCore.SetterAPI;
-                    api.SpawnBox(tfModel.ToFPCenter(), tfModel.ToFPQuaternion(), tfModel.ToFPScale(), tfModel.ToFPSize());
+                    var box = api.SpawnBox(tfModel.ToFPCenter(), tfModel.ToFPQuaternion(), tfModel.ToFPScale(), tfModel.ToFPSize());
+                    box.SetFirctionCoe(5);
                 }
 
                 // - Renderer
                 Vector3 bornPos = fieldSO.ToBornPos();
-                rendererCore.RendererFacade.Domain.RoleDomain.SpawnRole(1000, logicRole.IDComponent.ID, bornPos);
+                var rendererRole = rendererCore.RendererFacade.Domain.RoleDomain.SpawnRole(1000, logicRole.IDComponent.ID, bornPos);
 
                 var rootTF = handle.Result.Scene.GetRootGameObjects()[0].transform;
                 var roleTF = new GameObject("Role").transform;
@@ -146,16 +149,16 @@ namespace Transformer.Entry
             var physicsCore = logicCore.PhysicsCore;
             var getterAPI = physicsCore.GetterAPI;
             var allBoxes = getterAPI.GetAllBoxes();
-            var allRBBoxes = getterAPI.GetAllRBBoxes();
+            var allRBBoxes = getterAPI.GetAllBoxRBs();
 
             allBoxes.ForEach((box) =>
             {
                 box.DrawBoxBorder();
                 box.DrawBoxPoint();
             });
-            allRBBoxes.ForEach((rbBox) =>
+            allRBBoxes.ForEach((boxRB) =>
             {
-                var box = rbBox.Box;
+                var box = boxRB.Box;
                 box.DrawBoxBorder();
                 box.DrawBoxPoint();
             });
