@@ -1,11 +1,10 @@
-namespace Transformer.Bussiness.LogicBussiness.Config
-{
+namespace Transformer.Bussiness.LogicBussiness.Config {
 
-    public static class GameConfig
-    {
+    public static class GameConfig {
 
-        public static readonly int PHYSICS_FRAMERATE = 60;
-        public static readonly float GRAVITY = 12;
+        public static readonly int physics_frame_rate = 60;
+        public static readonly int gravity = 12;
+        public static readonly int moveAccelerate = 1;
 
     }
 

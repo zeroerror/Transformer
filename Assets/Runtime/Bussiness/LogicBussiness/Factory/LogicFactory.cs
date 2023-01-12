@@ -1,34 +1,31 @@
 using FixMath.NET;
+using Transformer.Bussiness.LogicBussiness.Config;
 using Transformer.Bussiness.LogicBussiness.Facade;
 using Transformer.Bussiness.LogicBussiness.Generic;
 
-namespace Transformer.Bussiness.LogicBussiness.Factory
-{
+namespace Transformer.Bussiness.LogicBussiness.Factory {
 
-    public class LogicFactory
-    {
+    public class LogicFactory {
 
         LogicFacade facade;
 
-        public LogicFactory()
-        {
+        public LogicFactory() {
 
         }
 
-        public void Inject(LogicFacade facade)
-        {
+        public void Inject(LogicFacade facade) {
             this.facade = facade;
         }
 
-        public RoleEntity SpawnRole(int typeID, in FPVector3 spawnPos)
-        {
+        public RoleEntity SpawnRole(int typeID, in FPVector3 spawnPos) {
             var roleTemplate = facade.Template.RoleTemplate;
             var model = roleTemplate.TryGet(typeID);
 
             // - Spawn Entity
             RoleEntity role = new RoleEntity();
             var lc = role.LocomotionComponent;
-            lc.SetMoveSpeed(model.moveSpeed_CM * FP64.EN2);
+            lc.SetMoveMaxSpeed(model.moveSpeed_CM * FP64.EN2);
+            lc.SetMoveAccelerate(GameConfig.moveAccelerate);
             lc.SetJumpSpeed(model.jumpForce_CM * FP64.EN2);
 
             // - Spawn Rigidbody

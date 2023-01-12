@@ -1,35 +1,24 @@
 using FixMath.NET;
 
-namespace Transformer.Bussiness.LogicBussiness.Phase
-{
+namespace Transformer.Bussiness.LogicBussiness.Phase {
 
-    public class EntityLogicPhase
-    {
+    public class EntityLogicPhase {
 
         Facade.LogicFacade facade;
 
         public EntityLogicPhase() { }
 
-        public void Inject(Facade.LogicFacade facade)
-        {
+        public void Inject(Facade.LogicFacade facade) {
             this.facade = facade;
         }
 
-        public void Tick(FP64 dt)
-        {
+        public void Tick(FP64 dt) {
             var roleRepo = facade.Repo.RoleRepo;
-            roleRepo.ForeachAll((role) =>
-            {
-                var inputComponent = role.InputComponent;
-                var lc = role.LocomotionComponent;
+            var domain = facade.Domain;
+            var roleDomain = domain.RoleDomain;
 
-                // - Move
-                var moveDir = inputComponent.moveDir;
-                var vel = moveDir * lc.MoveSpeed;
-                lc.Move(vel);
-                // - Jump
-                if (inputComponent.jump) lc.Jump();
-                inputComponent.Reset();
+            roleRepo.ForeachAll((role) => {
+                roleDomain.RoleLocomotion(role);
             });
         }
 

@@ -7,11 +7,9 @@ using Transformer.Template;
 using Transformer.Bussiness.RendererAPI;
 using Transformer.Bussiness.LogicBussiness.Config;
 
-namespace Transformer.Bussiness.LogicBussiness
-{
+namespace Transformer.Bussiness.LogicBussiness {
 
-    public class LogicCore
-    {
+    public class LogicCore {
 
         public LogicFacade logicFacade;
 
@@ -26,8 +24,7 @@ namespace Transformer.Bussiness.LogicBussiness
         FP64 restoreTime;
         FP64 intervalTime;
 
-        public LogicCore()
-        {
+        public LogicCore() {
             logicFacade = new Facade.LogicFacade();
 
             inputPhase = new InputPhase();
@@ -35,12 +32,11 @@ namespace Transformer.Bussiness.LogicBussiness
             physicsPhase = new PhysicsPhase();
             rendererPhase = new RendererPhase();
 
-            physicsCore = new PhysicsWorld3DCore(new FPVector3(0, -FP64.ToFP64(GameConfig.GRAVITY), 0));
-            intervalTime = 1 / FP64.ToFP64(GameConfig.PHYSICS_FRAMERATE);
+            physicsCore = new PhysicsWorld3DCore(new FPVector3(0, -FP64.ToFP64(GameConfig.gravity), 0));
+            intervalTime = 1 / FP64.ToFP64(GameConfig.physics_frame_rate);
         }
 
-        public void Inject(FreeInputCore inputCore, AllTemplate template, RendererSetter rendererSetter)
-        {
+        public void Inject(FreeInputCore inputCore, AllTemplate template, RendererSetter rendererSetter) {
             logicFacade.Inject(inputCore, physicsCore, template, rendererSetter);
 
             inputPhase.Inject(logicFacade);
@@ -49,20 +45,14 @@ namespace Transformer.Bussiness.LogicBussiness
             rendererPhase.Inject(logicFacade);
         }
 
-        public void Update(float dt)
-        {
+        public void Tick(float dt) {
             inputPhase.Update();
-        }
-
-        public void Tick(float dt)
-        {
             restoreTime += FP64.ToFP64(dt);
-            while (restoreTime >= intervalTime)
-            {
+            while (restoreTime >= intervalTime) {
                 restoreTime -= intervalTime;
                 // - Phase
-                logicPhase.Tick(intervalTime);
                 physicsPhase.Tick(intervalTime);
+                logicPhase.Tick(intervalTime);
                 rendererPhase.Tick(intervalTime);
             }
         }

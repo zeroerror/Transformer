@@ -15,11 +15,9 @@ using Transformer.Generic;
 using Transformer.Template;
 using Transformer.Bussiness.RendererAPI;
 
-namespace Transformer.Entry
-{
+namespace Transformer.Entry {
 
-    public class MainEntry : MonoBehaviour
-    {
+    public class MainEntry : MonoBehaviour {
 
         // === Core
         TCCore camCore;
@@ -34,19 +32,16 @@ namespace Transformer.Entry
 
         bool sceneLoaded = false;
 
-        void Awake()
-        {
+        void Awake() {
             DontDestroyOnLoad(this);
-            Action action = async () =>
-            {
+            Action action = async () => {
                 await Init();
                 Inject();
             };
             action.Invoke();
         }
 
-        void Update()
-        {
+        void Update() {
             if (!sceneLoaded) return;
 
             var dt = UnityEngine.Time.deltaTime;
@@ -55,20 +50,17 @@ namespace Transformer.Entry
             logicCore.Tick(dt);
 
             // Renderer
-            logicCore.Update(dt);
             rendererCore.Update(dt);
             uiCore.Update(dt);
         }
 
-        void LateUpdate()
-        {
+        void LateUpdate() {
             if (!sceneLoaded) return;
 
             camCore.Tick(UnityEngine.Time.deltaTime);
         }
 
-        async Task Init()
-        {
+        async Task Init() {
             // - Core
             camCore = new TCCore();
             camCore.Initialize(Camera.main);
@@ -96,20 +88,21 @@ namespace Transformer.Entry
 
             // - Scene
             var handle = Addressables.LoadSceneAsync("scene_field_1000", LoadSceneMode.Single);
-            handle.Completed += (op) =>
-            {
+            handle.Completed += (op) => {
                 var fieldSO = allTemplate.FieldTempate.TryGet(1000);
                 var physicsCore = logicCore.PhysicsCore;
 
                 // - Logic
+                // Role
                 FPVector3 bornFPPos = fieldSO.ToFPBornPos();
                 var logicRole = logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, bornFPPos);
                 var rb = logicRole.LocomotionComponent.BoxRB;
-                rb.SetBounceCoefficient(5);
+                rb.SetBounceCoefficient(FP64.EN1);
+                rb.Box.SetFirctionCoe(5);
 
+                // Field
                 var tfModels = fieldSO.transformModels;
-                for (int i = 0; i < tfModels.Length; i++)
-                {
+                for (int i = 0; i < tfModels.Length; i++) {
                     var tfModel = tfModels[i];
                     var api = physicsCore.SetterAPI;
                     var box = api.SpawnBox(tfModel.ToFPCenter(), tfModel.ToFPQuaternion(), tfModel.ToFPScale(), tfModel.ToFPSize());
@@ -133,8 +126,7 @@ namespace Transformer.Entry
             };
         }
 
-        void Inject()
-        {
+        void Inject() {
             rendererCore.Inject(camCore, allTemplate);
 
             RendererSetter rendererSetter = new RendererSetter();
@@ -142,8 +134,7 @@ namespace Transformer.Entry
             logicCore.Inject(inputCore, allTemplate, rendererSetter);
         }
 
-        void OnDrawGizmos()
-        {
+        void OnDrawGizmos() {
             if (logicCore == null) return;
 
             var physicsCore = logicCore.PhysicsCore;
@@ -151,13 +142,11 @@ namespace Transformer.Entry
             var allBoxes = getterAPI.GetAllBoxes();
             var allRBBoxes = getterAPI.GetAllBoxRBs();
 
-            allBoxes.ForEach((box) =>
-            {
+            allBoxes.ForEach((box) => {
                 box.DrawBoxBorder();
                 box.DrawBoxPoint();
             });
-            allRBBoxes.ForEach((boxRB) =>
-            {
+            allRBBoxes.ForEach((boxRB) => {
                 var box = boxRB.Box;
                 box.DrawBoxBorder();
                 box.DrawBoxPoint();
