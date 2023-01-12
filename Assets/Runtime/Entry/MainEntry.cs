@@ -97,7 +97,7 @@ namespace Transformer.Entry {
                 FPVector3 bornFPPos = fieldSO.ToFPBornPos();
                 var logicRole = logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, bornFPPos);
                 var rb = logicRole.LocomotionComponent.BoxRB;
-                rb.SetBounceCoefficient(FP64.EN1);
+                rb.SetBounceCoefficient(0);
                 rb.Box.SetFirctionCoe(5);
 
                 // Field
@@ -144,12 +144,10 @@ namespace Transformer.Entry {
 
             allBoxes.ForEach((box) => {
                 box.DrawBoxBorder();
-                box.DrawBoxPoint();
             });
             allRBBoxes.ForEach((boxRB) => {
                 var box = boxRB.Box;
                 box.DrawBoxBorder();
-                box.DrawBoxPoint();
             });
         }
 

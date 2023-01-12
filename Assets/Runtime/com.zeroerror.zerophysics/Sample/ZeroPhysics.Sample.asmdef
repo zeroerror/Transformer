@@ -1,0 +1,18 @@
+{
+    "name": "ZeroPhysics.Sample",
+    "rootNamespace": "",
+    "references": [
+        "GUID:af459cb873b785f4abfc3858fb09f538",
+        "GUID:456740c386b308542be128e7c798eefb",
+        "GUID:d93e682ec4847c543951f4ff0bcfb33c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

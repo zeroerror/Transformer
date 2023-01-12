@@ -32,7 +32,7 @@ namespace Transformer.Bussiness.LogicBussiness {
             physicsPhase = new PhysicsPhase();
             rendererPhase = new RendererPhase();
 
-            physicsCore = new PhysicsWorld3DCore(new FPVector3(0, -FP64.ToFP64(GameConfig.gravity), 0));
+            physicsCore = new PhysicsWorld3DCore(new FPVector3(0, GameConfig.gravity, 0));
             intervalTime = 1 / FP64.ToFP64(GameConfig.physics_frame_rate);
         }
 
@@ -51,8 +51,8 @@ namespace Transformer.Bussiness.LogicBussiness {
             while (restoreTime >= intervalTime) {
                 restoreTime -= intervalTime;
                 // - Phase
-                physicsPhase.Tick(intervalTime);
                 logicPhase.Tick(intervalTime);
+                physicsPhase.Tick(intervalTime);
                 rendererPhase.Tick(intervalTime);
             }
         }

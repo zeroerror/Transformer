@@ -29,11 +29,16 @@ namespace Transformer.Bussiness.LogicBussiness {
 
         public void Move(in FPVector3 dir) {
             if (dir == FPVector3.Zero) {
+                moveV = FPVector3.Zero;
                 return;
             }
 
+            moveV += moveAccelerate * dir;
+            moveV = moveV.Length() > moveMaxSpeed ? moveMaxSpeed * dir : moveV;
             var v = boxRB.LinearV;
-            boxRB.SetLinearV(v + moveAccelerate * dir);
+            v.x = moveV.x;
+            v.z = moveV.z;
+            boxRB.SetLinearV(v);
         }
 
         public void Jump() {

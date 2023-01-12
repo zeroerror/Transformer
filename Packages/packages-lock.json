@@ -12,7 +12,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "494d3770b3b02fefc6780364aa5763d6a3b756f0"
+      "hash": "8070a9c7fd4441434cbb1c433517ee1aebbfb428"
     },
     "com.gamearki.freeinput": {
       "version": "ssh://git@github.com/gamearki/FreeInput.git?path=Assets/com.gamearki.freeinput",
@@ -241,13 +241,6 @@
       "source": "git",
       "dependencies": {},
       "hash": "7b8729c8180aeec2756e0641539264c4bf5abb78"
-    },
-    "com.zeroerror.zerophysics": {
-      "version": "ssh://git@github.com/zeroerror/ZeroPhysics.git?path=Assets/com.zeroerror.zerophysics#main",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "7561114a4195529e891b273e5670bed0c4b3ec16"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
