@@ -40,7 +40,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "14d46bc1b1040e1337b3e426a927af99e2994194"
+      "hash": "d4ef0607cd299bace95f4f657106b1ffb0b7831c"
     },
     "com.unity.addressables": {
       "version": "1.19.19",
@@ -247,7 +247,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "bd1ca573830f54a2dc9aef0c956f6d10765d07aa"
+      "hash": "01748f3677fdad16193a847f555dcc3815f64fd2"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

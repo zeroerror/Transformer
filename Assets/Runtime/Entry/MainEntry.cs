@@ -14,6 +14,7 @@ using Transformer.UIBussiness;
 using Transformer.Generic;
 using Transformer.Template;
 using Transformer.Bussiness.RendererAPI;
+using GameArki.FPEasing;
 
 namespace Transformer.Entry {
 
@@ -61,11 +62,6 @@ namespace Transformer.Entry {
         }
 
         async Task Init() {
-            // - Core
-            camCore = new TCCore();
-            camCore.Initialize(Camera.main);
-            camCore.SetterAPI.SpawnByMain(0);
-
             inputCore = new FreeInputCore();
             var setter = inputCore.Setter;
             InputKeyCodeModel inputKeyCodeModel = new InputKeyCodeModel();
@@ -97,7 +93,7 @@ namespace Transformer.Entry {
                 FPVector3 bornFPPos = fieldSO.ToFPBornPos();
                 var logicRole = logicCore.logicFacade.Domain.RoleDomain.SpawnRole(1000, ControlType.Owner, bornFPPos);
                 var rb = logicRole.LocomotionComponent.BoxRB;
-                rb.SetBounceCoefficient(0);
+                rb.SetBounceCoefficient(FP64.Half);
                 rb.Box.SetFirctionCoe(5);
 
                 // Field
@@ -114,13 +110,18 @@ namespace Transformer.Entry {
                 var rendererRole = rendererCore.RendererFacade.Domain.RoleDomain.SpawnRole(1000, logicRole.IDComponent.ID, bornPos);
 
                 var rootTF = handle.Result.Scene.GetRootGameObjects()[0].transform;
-                var roleTF = new GameObject("Role").transform;
-                roleTF.position = bornPos;
+                var roleTF = rendererRole.transform;
                 roleTF.SetParent(rootTF, true);
 
+                // - Core
+                camCore = new TCCore();
+                camCore.Initialize(Camera.main);
                 var cameraSetterAPI = camCore.SetterAPI;
-                cameraSetterAPI.Follow_SetInit_Current(roleTF, new Vector3(0, 10, -10), GameArki.FPEasing.EasingType.Linear, 0f);
-                cameraSetterAPI.LookAt_SetInit_Current(roleTF, new Vector3(0, 0, 0));
+                cameraSetterAPI.SpawnByMain(0);
+                cameraSetterAPI.Follow_SetInit_Current(roleTF, new Vector3(0, 5, -8),
+                EasingType.Linear, 0f,
+                EasingType.Linear, 0.3f);
+                cameraSetterAPI.LookAt_SetInit_Current(roleTF, new Vector3(0.1f, 0, 0));
 
                 sceneLoaded = true;
             };
