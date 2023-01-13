@@ -17,9 +17,9 @@ namespace Transformer.Bussiness.LogicBussiness.Phase {
             var domain = facade.Domain;
             var roleDomain = domain.RoleDomain;
 
-            // roleRepo.ForeachAll((role) => {
-            //     roleDomain.RoleLocomotion(role);
-            // });
+            roleRepo.ForeachAll((role) => {
+                roleDomain.RoleLocomotion(role);
+            });
         }
 
     }
